@@ -7,7 +7,7 @@ const TBody = ({
     rows,
     prepareRow,
 }) => (
-    <tbody {...getTableBodyProps()}>
+    <tbody {...getTableBodyProps()} style={{ display: 'block' }}>
         <Tr
             rows={rows}
             prepareRow={prepareRow}

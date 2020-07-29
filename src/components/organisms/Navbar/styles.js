@@ -5,6 +5,20 @@ grid-row: 1 / 3;
 height: 100%;
 padding: 28px;
 background-color: #F1F1F1;
+
+> a {
+    display: inline-block;
+    width: 100%;
+    border-radius: 7px;
+    padding: 14px;
+    margin-top: 42px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.16);
+    background-color #4B5A8A;
+    color: #F0F0F0;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+}
 `;
 
 export const H1 = styled.h1`
@@ -13,7 +27,7 @@ font-weight: bold;
 `;
 
 export const UL = styled.ul`
-padding-top: 56px;
+padding-top: 28px;
 list-style: none;
 `;
 

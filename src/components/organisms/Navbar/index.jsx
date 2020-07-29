@@ -8,6 +8,7 @@ import { Nav, H1, UL, LI } from './styles';
 const Navbar = () => (
     <Nav>
         <H1>BibliotecaGeek</H1>
+        <Link to="posts/new">Nueva Publicacion</Link>
         <UL>
             <LI>
                 <div>

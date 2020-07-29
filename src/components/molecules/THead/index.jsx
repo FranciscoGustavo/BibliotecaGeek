@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { TH } from './styles';
+import { TR, TH } from './styles';
 
 const THead = ({ headerGroups }) => (
-    <thead>
+    <thead style={{ display: 'block' }}>
         {headerGroups.map((headerGroup) => (
-        <tr {...headerGroup.getHeaderGroupProps()}>
+        <TR {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
             <TH {...column.getHeaderProps()}>{column.render('Header')}</TH>
             ))}
-        </tr>
+        </TR>
         ))}
     </thead>
 );
