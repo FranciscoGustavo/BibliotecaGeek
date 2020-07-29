@@ -1,6 +1,8 @@
 import React, { useMemo} from 'react';
 import { useTable } from 'react-table';
 
+import Table from '../../organisms/Table';
+
 const useFunctionMemo = (object) => useMemo(
     () => object,
     [],
