@@ -17,6 +17,11 @@ body, #root {
     overflow: hidden;
     background-color: #FCFCFC;
 }
+
+a {
+    text-decoration: none;
+    color: #000;
+}
 `;
 
 export const Div = styled.div`

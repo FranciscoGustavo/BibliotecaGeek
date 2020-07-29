@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { FaHome, FaFileAlt } from 'react-icons/fa';
 
@@ -11,13 +12,13 @@ const Navbar = () => (
             <LI>
                 <div>
                     <FaHome />
-                    <a>Home</a>
+                    <Link to="/">Home</Link>
                 </div>
             </LI>
             <LI>
                 <div>
                     <FaFileAlt />
-                    <a>Publicaciones</a>
+                    <Link to="/posts">Publicaciones</Link>
                 </div>
             </LI>
         </UL>
