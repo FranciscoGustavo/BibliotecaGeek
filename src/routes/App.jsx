@@ -1,5 +1,8 @@
 import React from 'react';
 
+import Header from '../components/organisms/Header';
+import Navbar from '../components/organisms/Navbar';
+
 import { Dashboard, Div } from './styles';
 
 function App() {
@@ -7,7 +10,11 @@ function App() {
     <>
         <Dashboard />
         <Div className="App">
-            <h1>Hello World</h1>
+            <Header />
+            <Navbar />
+            <main>
+              <h1>Hello World</h1>
+            </main>
         </Div>
     </>
   );

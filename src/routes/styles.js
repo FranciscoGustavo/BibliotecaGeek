@@ -19,6 +19,10 @@ body, #root {
 `;
 
 export const Div = styled.div`
-    position: relative;
-    overflow-y: auto;
+display: grid;
+grid-template-columns: 220px 1fr;
+grid-template-rows: 60px 1fr;
+width: 100%;
+height: 100%;
+overflow-y: auto;
 `;
