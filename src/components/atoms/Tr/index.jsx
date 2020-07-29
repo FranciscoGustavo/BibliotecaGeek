@@ -1,18 +1,20 @@
 import React from 'react';
 
+import { TD, TR } from './styles';
+
 const Tr = ({ rows, prepareRow }) => {
     const renderCells = (row) => row.cells.map((cell) => (
-      <td {...cell.getCellProps()}>
+      <TD {...cell.getCellProps()}>
         {cell.render('Cell')}
-      </td>
+      </TD>
     ));
   
     const renderRows = () => rows.map((row) => {
       prepareRow(row);
       return (
-        <tr {...row.getRowProps()}>
+        <TR {...row.getRowProps()}>
           {renderCells(row)}
-        </tr>
+        </TR>
       );
     });
   

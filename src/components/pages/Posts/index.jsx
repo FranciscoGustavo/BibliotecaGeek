@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import TemplateTable from '../../templates/TemplateTable';
@@ -24,13 +26,26 @@ const Posts = () => {
             accessor: 'isPublic',
             Cell: ({ value }) => (value ? 'Publicado' : 'Borrador'),
         },
+        {
+            Header: '',
+            accessor: 'slug',
+            Cell: (cell) => (
+                <div>
+                    <Link to={cell.value}>
+                        <FaEdit />
+                    </Link>
+                    <Link to="/" >
+                        <FaTrash />
+                    </Link>
+                </div>
+            ),
+        }
     ]
 
     if (error) return (<h1>Ups algo salio mal</h1>)
 
     return (
         <>
-            <h1>Lista de posts</h1>
             {
                 posts 
                     ? <TemplateTable data={posts} columns={columns} /> 

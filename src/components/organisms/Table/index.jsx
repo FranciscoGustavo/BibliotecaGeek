@@ -3,6 +3,8 @@ import React from 'react';
 import THead from '../../molecules/THead';
 import TBody from '../../molecules/TBody';
 
+import { STable } from './styles';
+
 const Table = ({
     getTableProps,
     getTableBodyProps,
@@ -10,7 +12,7 @@ const Table = ({
     rows,
     prepareRow,
 }) => (
-    <table {...getTableProps()}>
+    <STable {...getTableProps()}>
         <THead
             headerGroups={headerGroups}
         />
@@ -19,7 +21,7 @@ const Table = ({
             rows={rows}
             prepareRow={prepareRow}
         />
-    </table>
+    </STable>
 );
 
 export default Table;

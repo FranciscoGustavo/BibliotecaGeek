@@ -34,7 +34,7 @@ button {
 
 main {
     padding: 28px;
-    background-color: red;
+    overflow-y: auto;
 }
 `;
 
@@ -44,5 +44,5 @@ grid-template-columns: 250px 1fr;
 grid-template-rows: auto 1fr;
 width: 100%;
 height: 100%;
-overflow-y: auto;
+overflow: hidden;
 `;
