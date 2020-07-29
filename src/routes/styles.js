@@ -22,12 +22,26 @@ a {
     text-decoration: none;
     color: #000;
 }
+
+img {
+    width: 100%;
+}
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+}
+
+main {
+    padding: 28px;
+    background-color: red;
+}
 `;
 
 export const Div = styled.div`
 display: grid;
 grid-template-columns: 250px 1fr;
-grid-template-rows: 60px 1fr;
+grid-template-rows: auto 1fr;
 width: 100%;
 height: 100%;
 overflow-y: auto;

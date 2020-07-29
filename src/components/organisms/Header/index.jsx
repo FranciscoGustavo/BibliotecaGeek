@@ -1,10 +1,27 @@
 import React from 'react';
+import { FaBell, FaEllipsisV, FaSearch } from 'react-icons/fa';
 
-import { HeaderDiv } from './styles';
+import { HeaderDiv, UserActions, ProfileImage } from './styles';
 
 const Header = () => (
     <HeaderDiv>
-        Esto es el header
+        <div>
+            <label htmlFor="">
+                <FaSearch /> 
+            </label>
+            <input type="text" placeholder="Buscar" />
+        </div>
+        <UserActions>
+            <button>
+                <FaBell />
+            </button>
+            <ProfileImage>   
+                <img src="https://avatars0.githubusercontent.com/u/20009195?s=460&u=ab47eda7b9cc311eae995373af99a922ad9d475f&v=4" alt=""/>
+            </ProfileImage>
+            <button>
+                <FaEllipsisV />
+            </button>
+        </UserActions>
     </HeaderDiv>
 );
 
