@@ -1,10 +1,26 @@
 import React from 'react';
 
-import { Nav } from './styles';
+import { FaHome, FaFileAlt } from 'react-icons/fa';
+
+import { Nav, H1, UL, LI } from './styles';
 
 const Navbar = () => (
     <Nav>
-        Navegacion
+        <H1>BibliotecaGeek</H1>
+        <UL>
+            <LI>
+                <div>
+                    <FaHome />
+                    <a>Home</a>
+                </div>
+            </LI>
+            <LI>
+                <div>
+                    <FaFileAlt />
+                    <a>Publicaciones</a>
+                </div>
+            </LI>
+        </UL>
     </Nav>
 );
 
