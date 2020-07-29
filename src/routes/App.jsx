@@ -1,21 +1,19 @@
 import React from 'react';
 
-import Header from '../components/organisms/Header';
-import Navbar from '../components/organisms/Navbar';
+import TemplateDashboardApp from '../components/templates/TemplateDashboardApp';
 
 import { Dashboard, Div } from './styles';
 
 function App() {
   return (
     <>
-        <Dashboard />
-        <Div className="App">
-            <Header />
-            <Navbar />
-            <main>
-              <h1>Hello World</h1>
-            </main>
-        </Div>
+      <Dashboard />
+      <Div className="App">
+        <TemplateDashboardApp>
+          <h1>Hello World</h1>
+          <p>Here go page</p>
+        </TemplateDashboardApp>
+      </Div>
     </>
   );
 }
