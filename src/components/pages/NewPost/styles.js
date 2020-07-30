@@ -71,5 +71,13 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 250px;
+background-color: gray;
 overflow: hidden;
+
+label {
+    border-radius: 7px;
+    padding: 14px;
+    cursor: pointer;
+    background-color: #FFF;
+}
 `;

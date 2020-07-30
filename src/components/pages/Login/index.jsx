@@ -4,6 +4,8 @@ import axios from 'axios';
 
 import { loginUser } from '../../../actions';
 
+import { Div, FormContainer, Input } from './styles';
+
 const Login = ({ history, login }) => {
     console.log({ history, login });
     const [form, setForm] = useState({});
@@ -47,13 +49,16 @@ const Login = ({ history, login }) => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="email" onChange={handleChange} placeholder="Excribe tu correo" />
-                <input type="password" name="password" onChange={handleChange} placeholder="Escribe tu contraseña" />
-                <input type="submit" value="Entrar"/>
-            </form>
-        </div>
+        <Div>
+            <FormContainer>
+                <form onSubmit={handleSubmit}>
+                    <h1>Inicia Sesión</h1>
+                    <Input type="text" name="email" onChange={handleChange} placeholder="Excribe tu correo" />
+                    <Input type="password" name="password" onChange={handleChange} placeholder="Escribe tu contraseña" />
+                    <Input type="submit" value="Entrar"/>
+                </form>
+            </FormContainer>
+        </Div>
     );
 };
 

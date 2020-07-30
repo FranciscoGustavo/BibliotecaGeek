@@ -9,7 +9,7 @@ import * as serviceWorker from './serviceWorker';
 
 import reducer from './reducers';
 
-const store = createStore(reducer, { user: false });
+const store = createStore(reducer, { user: true });
 
 ReactDOM.render(
   <React.StrictMode>
