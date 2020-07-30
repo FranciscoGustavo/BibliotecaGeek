@@ -7,7 +7,7 @@ const NewPost = () => (
         <Post>
             <div>
                 <Cover>
-                    <img src="https://res.cloudinary.com/dwapbqqbo/image/upload/v1592516373/ppyvrszlr0s2wxigqpae.jpg" />
+                    <img src="https://res.cloudinary.com/dwapbqqbo/image/upload/v1592516373/ppyvrszlr0s2wxigqpae.jpg" alt="AAAA" />
                 </Cover>
                 <input type="text" value="Mi primer post"/>
                 <textarea>

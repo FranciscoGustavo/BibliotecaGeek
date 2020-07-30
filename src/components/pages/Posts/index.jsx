@@ -7,14 +7,14 @@ import TemplateTable from '../../templates/TemplateTable';
 
 const Posts = () => {
     const [posts, setPosts] = useState(false);
-    const [error, setError] = useState(false);
+    const [err, setError] = useState(false);
 
     useEffect(() => {
         axios({
             url: 'http://localhost:5000/api/posts',
         })
         .then((res) => setPosts(res.data.body.posts))
-        .catch((err) => setError(error));
+        .catch((err) => setError(err));
     }, []);
 
     const columns = [
@@ -42,7 +42,7 @@ const Posts = () => {
         }
     ]
 
-    if (error) return (<h1>Ups algo salio mal</h1>)
+    if (err) return (<h1>Ups algo salio mal</h1>)
 
     return (
         <>

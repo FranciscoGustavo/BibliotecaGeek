@@ -5,7 +5,7 @@ import Table from '../../organisms/Table';
 
 const useFunctionMemo = (object) => useMemo(
     () => object,
-    [],
+    [object],
 );
 
 const TemplateTable = ({ data, columns }) => {
