@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { FaEdit, FaTrash } from 'react-icons/fa';
 
 import TemplateTable from '../../templates/TemplateTable';
+import EditOrDeletePost from '../../molecules/EditOrDeletePost';
 import { savePosts, currentPost } from '../../../actions';
 import getPosts from '../../../services/getPosts';
 import deletePost from '../../../services/deletePost';
@@ -51,14 +50,11 @@ const Posts = ({ token, save, history, current }) => {
             Header: '',
             accessor: 'slug',
             Cell: (cell) => (
-                <div>
-                    <button onClick={() => handleClick(cell.value)}>
-                        <FaEdit />
-                    </button>
-                    <button onClick={() => handleDelete(cell.value)}>
-                        <FaTrash />
-                    </button>
-                </div>
+                <EditOrDeletePost
+                    handleClick={handleClick}
+                    handleDelete={handleDelete}
+                    value={cell.value}
+                />
             ),
         }
     ]
