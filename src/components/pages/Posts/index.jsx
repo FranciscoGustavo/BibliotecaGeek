@@ -7,7 +7,7 @@ import axios from 'axios';
 import TemplateTable from '../../templates/TemplateTable';
 import { savePosts } from '../../../actions';
 
-const Posts = ({ token, save }) => {
+const Posts = ({ token, save, history }) => {
     const [posts, setPosts] = useState(false);
     const [err, setError] = useState(false);
 
@@ -21,9 +21,16 @@ const Posts = ({ token, save }) => {
         .then((res) => {
             setPosts(res.data.body.posts)
             save(res.data.body.posts);
+            localStorage.setItem('posts', JSON.stringify(res.data.body.posts));
         })
         .catch((err) => setError(err));
     }, []);
+
+    const handleClick = (slug) => {
+        const currentPost = posts.filter((post) => post.slug === slug);
+        localStorage.setItem('currentPost', JSON.stringify(currentPost[0]));
+        history.push(`/posts/edit/${slug}`);
+    };
 
     const columns = [
         { Header: 'Titulo', accessor: 'title' },
@@ -39,9 +46,9 @@ const Posts = ({ token, save }) => {
             accessor: 'slug',
             Cell: (cell) => (
                 <div>
-                    <Link to={`/posts/edit/${cell.value}`}>
+                    <button onClick={() => handleClick(cell.value)}>
                         <FaEdit />
-                    </Link>
+                    </button>
                     <Link to={cell.value}>
                         <FaTrash />
                     </Link>
