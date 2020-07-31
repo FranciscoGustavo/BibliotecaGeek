@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import showdown from 'showdown';
 
+import Post from '../../organisms/Post';
 import Settings from '../../organisms/Settings';
 
-import { Container, Post, Title, Cover, PostBody } from './styles'
+import { Container } from './styles'
 
 const converter = new showdown.Converter();
 
@@ -51,27 +52,18 @@ const FormPost = ({
 
     return (
         <Container>
-            <Post>
-                <Cover>
-                    <img src={cover} alt=""/>
-                    <input type="file" id="cover" onChange={handleCover}/>
-                    <label htmlFor="cover">Cambiar imagen</label>
-                </Cover>
-                <Title>
-                    <input type="text" name="" id="" value={title} onChange={handleTitle} />
-                </Title>
-                <div>
-                    <button onClick={() => setMarkDownToHtml(false)}>Marckdown</button>
-                    <button onClick={handleConvertHtml}>Html</button>
-                </div>
-                <PostBody>
-                    {
-                        !markDownToHtml 
-                            ? <textarea value={body} onChange={hanldeBody} />
-                            : <div dangerouslySetInnerHTML={{ __html: bodyHtml }}/>
-                    }
-                </PostBody>
-            </Post>
+            <Post 
+                title={title}
+                cover={cover}
+                body={body}
+                bodyHtml={bodyHtml}
+                markDownToHtml={markDownToHtml}
+                handleCover={handleCover}
+                handleTitle={handleTitle}
+                handleConvertHtml={handleConvertHtml}
+                hanldeBody={hanldeBody}
+                setMarkDownToHtml={setMarkDownToHtml}
+            />
             <Settings 
                 slug={slug}
                 description={description}
