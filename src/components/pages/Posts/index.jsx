@@ -2,29 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { FaEdit, FaTrash } from 'react-icons/fa';
-import axios from 'axios';
 
 import TemplateTable from '../../templates/TemplateTable';
 import { savePosts, currentPost } from '../../../actions';
+import getPosts from '../../../services/getPosts';
 
 const Posts = ({ token, save, history, current }) => {
     const [posts, setPosts] = useState(false);
     const [err, setError] = useState(false);
 
     useEffect(() => {
-        axios({
-            url: 'http://localhost:5000/api/posts/author',
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        })
-        .then((res) => {
-            setPosts(res.data.body.posts)
-            save(res.data.body.posts);
-            localStorage.setItem('posts', JSON.stringify(res.data.body.posts));
+        getPosts(token)
+        .then((body) => {
+            setPosts(body.posts)
+            save(body.posts);
+            localStorage.setItem('posts', JSON.stringify(body.posts));
         })
         .catch((err) => setError(err));
-    }, []);
+    }, [save, token]);
 
     const handleClick = (slug) => {
         const currentPost = posts.filter((post) => post.slug === slug);

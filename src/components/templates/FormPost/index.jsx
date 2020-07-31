@@ -7,6 +7,7 @@ import Settings from '../../organisms/Settings';
 import uploadImage from '../../../services/uploadImage';
 import updatePost from '../../../services/updatePost';
 import savePost from '../../../services/savePost';
+import publicPost from '../../../services/publicPost';
 
 import { Container } from './styles'
 
@@ -41,10 +42,20 @@ const FormPost = ({
             body,
             description,
             keywords,
-        })
+        }, currentSlug)
         .then(console.log)
         .catch(console.log);
         alert('Guardando');
+    };
+
+    const handlePublic = () => {
+        const { token } = JSON.parse(localStorage.getItem('user'));
+        console.log(currentSlug);
+        if (currentId) {
+            publicPost({ slug: currentSlug, token })
+            .then(console.log)
+            .catch(console.log);
+        } 
     };
 
     const handleTitle = (event) => setTitle(event.target.value);
@@ -89,6 +100,7 @@ const FormPost = ({
                 handleSlug={handleSlug}
                 handleDescription={handleDescription}
                 handleKeywords={handleKeywords}
+                handlePublic={handlePublic}
             />
         </Container>
     );

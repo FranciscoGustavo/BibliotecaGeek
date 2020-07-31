@@ -3,13 +3,13 @@ import React from 'react';
 import { Div, Actions, InputForm } from './styles';
 
 const Settings = ({
-    slug, description, keywords, handleSave, handleSlug, handleDescription, handleKeywords,
+    slug, description, keywords, handleSave, handleSlug, handleDescription, handleKeywords, handlePublic
 }) => {
     return (
         <Div>
             <Actions>
                 <button onClick={handleSave}>Guardar</button>
-                <button>Publicar</button>
+                <button onClick={handlePublic}>Publicar</button>
             </Actions>
             <InputForm>
                 <label htmlFor="slug">Url</label>

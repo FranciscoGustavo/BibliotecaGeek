@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import config from '../config';
-const { token } = JSON.parse(localStorage.getItem('user'));
+const { token } = JSON.parse(localStorage.getItem('user') || '{}');
 
 const uploadImage = async (fieldName, file) => {
     const formData = new FormData();
