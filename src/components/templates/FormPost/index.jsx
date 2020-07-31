@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Settings from '../../organisms/Settings';
 
-import { Container, Scroll, Post } from './styles'
+import { Container, Post } from './styles'
 
 const FormPost = ({ 
     currentTitle, 
@@ -21,10 +21,35 @@ const FormPost = ({
     const [body, setBody] = useState(currentBody);
     const [description, setDescription ] = useState(currentDescription);
     const [keywords, setKeywords] = useState(currentKeywords);
+
+    const handleSave = () => {
+        console.log({
+            title,
+            cover,
+            slug,
+            body,
+            description,
+            keywords,
+        });
+        alert('Guardando');
+    };
+
+    const handleSlug = (event) => setSlug(event.target.value);
+    const handleDescription = (event) => setDescription(event.target.value);
+    const handleKeywords = (event) => setKeywords(event.target.value);
+
     return (
         <Container>
             <Post>ONE</Post>
-            <Settings>Como estes</Settings>
+            <Settings 
+                slug={slug}
+                description={description}
+                keywords={keywords}
+                handleSave={handleSave}
+                handleSlug={handleSlug}
+                handleDescription={handleDescription}
+                handleKeywords={handleKeywords}
+            />
         </Container>
     );
 };
