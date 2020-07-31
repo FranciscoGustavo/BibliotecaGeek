@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Settings from '../../organisms/Settings';
 
-import { Container, Post } from './styles'
+import { Container, Post, Title, Cover } from './styles'
 
 const FormPost = ({ 
     currentTitle, 
@@ -34,13 +34,24 @@ const FormPost = ({
         alert('Guardando');
     };
 
+    const handleTitle = (event) => setTitle(event.target.value);
     const handleSlug = (event) => setSlug(event.target.value);
     const handleDescription = (event) => setDescription(event.target.value);
     const handleKeywords = (event) => setKeywords(event.target.value);
+    const handleCover = (event) => {};
 
     return (
         <Container>
-            <Post>ONE</Post>
+            <Post>
+                <Cover>
+                    <img src={cover} alt=""/>
+                    <input type="file" id="cover" onChange={handleCover}/>
+                    <label htmlFor="cover">Cambiar imagen</label>
+                </Cover>
+                <Title>
+                    <input type="text" name="" id="" value={title} onChange={handleTitle} />
+                </Title>
+            </Post>
             <Settings 
                 slug={slug}
                 description={description}

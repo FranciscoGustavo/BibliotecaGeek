@@ -7,9 +7,40 @@ min-height: 100%;
 `;
 
 export const Post = styled.div`
-background-color: green;
 width: 700px;
 height: 100%;
 border-radius: 7px;
 box-shadow: 0 0 7px rgba(0, 0, 0, 1);
+`;
+
+export const Title = styled.div`
+input {
+    display: block;
+    width: 100%;
+    border-bottom: solid 1px gray;
+    padding: 0 28px;
+    padding-bottom: 14px;
+    margin: 14px 0;
+    font-size: 35px;
+}
+`;
+
+export const Cover = styled.div`
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 250px;
+overflow: hidden;
+
+input {
+    display: none;
+}
+
+label {
+    position: absolute;
+    padding: 7px 14px;
+    cursor: pointer;
+    background-color: #FFF;
+}
 `;

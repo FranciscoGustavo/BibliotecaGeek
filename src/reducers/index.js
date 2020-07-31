@@ -10,6 +10,11 @@ const reducer = (state, action) => {
                 ...state,
                 posts: action.payload,
             }
+            case 'CURRENT_POST':
+                return {
+                    ...state,
+                    currentPost: action.payload,
+                }
         default:
             return state;
     }

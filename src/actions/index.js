@@ -6,4 +6,9 @@ export const loginUser = (payload) => ({
 export const savePosts = (payload) => ({
     type: 'SAVE_POSTS',
     payload,
-}); 
+});
+
+export const currentPost = (payload) => ({
+    type: 'CURRENT_POST',
+    payload,
+});

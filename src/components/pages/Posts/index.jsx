@@ -5,9 +5,9 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 
 import TemplateTable from '../../templates/TemplateTable';
-import { savePosts } from '../../../actions';
+import { savePosts, currentPost } from '../../../actions';
 
-const Posts = ({ token, save, history }) => {
+const Posts = ({ token, save, history, current }) => {
     const [posts, setPosts] = useState(false);
     const [err, setError] = useState(false);
 
@@ -28,6 +28,7 @@ const Posts = ({ token, save, history }) => {
 
     const handleClick = (slug) => {
         const currentPost = posts.filter((post) => post.slug === slug);
+        current(currentPost[0]);
         localStorage.setItem('currentPost', JSON.stringify(currentPost[0]));
         history.push(`/posts/edit/${slug}`);
     };
@@ -75,7 +76,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-    save: savePosts 
+    save: savePosts,
+    current: currentPost,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Posts);
