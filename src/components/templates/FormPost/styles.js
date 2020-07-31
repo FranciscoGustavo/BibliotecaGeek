@@ -11,6 +11,7 @@ width: 700px;
 height: 100%;
 border-radius: 7px;
 box-shadow: 0 0 7px rgba(0, 0, 0, 1);
+overflow: hidden;
 `;
 
 export const Title = styled.div`
@@ -42,5 +43,20 @@ label {
     padding: 7px 14px;
     cursor: pointer;
     background-color: #FFF;
+}
+`;
+
+export const PostBody = styled.div`
+padding: 28px;
+padding-bottom: 28px;
+
+textarea{
+    display: block;
+    width: 100%;
+    min-height: 300px;
+    
+    &:focus {
+        outline: none;
+    } 
 }
 `;

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import showdown from 'showdown';
 
 import Settings from '../../organisms/Settings';
 
-import { Container, Post, Title, Cover } from './styles'
+import { Container, Post, Title, Cover, PostBody } from './styles'
+
+const converter = new showdown.Converter();
 
 const FormPost = ({ 
     currentTitle, 
@@ -35,10 +38,16 @@ const FormPost = ({
     };
 
     const handleTitle = (event) => setTitle(event.target.value);
+    const handleCover = (event) => {};
     const handleSlug = (event) => setSlug(event.target.value);
+    const hanldeBody = (event) => setBody(event.target.value);
     const handleDescription = (event) => setDescription(event.target.value);
     const handleKeywords = (event) => setKeywords(event.target.value);
-    const handleCover = (event) => {};
+
+    const handleConvertHtml = () => {
+        setBodyHtml(converter.makeHtml(body));
+        setMarkDownToHtml(true);
+    }
 
     return (
         <Container>
@@ -51,6 +60,17 @@ const FormPost = ({
                 <Title>
                     <input type="text" name="" id="" value={title} onChange={handleTitle} />
                 </Title>
+                <div>
+                    <button onClick={() => setMarkDownToHtml(false)}>Marckdown</button>
+                    <button onClick={handleConvertHtml}>Html</button>
+                </div>
+                <PostBody>
+                    {
+                        !markDownToHtml 
+                            ? <textarea value={body} onChange={hanldeBody} />
+                            : <div dangerouslySetInnerHTML={{ __html: bodyHtml }}/>
+                    }
+                </PostBody>
             </Post>
             <Settings 
                 slug={slug}
