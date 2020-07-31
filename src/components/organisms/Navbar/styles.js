@@ -32,15 +32,14 @@ list-style: none;
 `;
 
 export const LI = styled.li`
-position: relative;
-padding: 14px 0;
-cursor: pointer;
-
-div {
+a {
+    position: relative;
     display: flex;
     align-items: center;
+    padding: 14px 0;
     transform-origin: left;
     transition: all 0.2s;
+    cursor: pointer;
 }
 
 svg {
@@ -48,24 +47,21 @@ svg {
     font-size: 21px;
 }
 
-:hover {
+a:hover {
+    font-weight: bold;
+    transform: scale(1.05);
     color: #4285F4;
 }
 
-:hover:before {
+a:hover:before {
     position: absolute;
-    left: -28px;
+    left: -27px;
     content: '';
     display: block;
-    width: 5px;
+    width: 3px;
     height: 60%;
     border-radius: 4.5px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
     background-color: #4285F4;
-}
-
-:hover div {
-    font-weight: bold;
-    transform: scale(1.05);
 }
 `;

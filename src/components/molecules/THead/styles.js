@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const TR = styled.tr`
 display: grid;
-grid-template-columns: 250px 1fr 1fr 1fr 1fr;
+grid-template-columns: 1fr 150px 150px 200px 100px;
 border-radius: 14px 14px 7px 7px;
 margin-bottom: 7px;
 `;

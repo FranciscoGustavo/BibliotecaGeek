@@ -1,16 +1,16 @@
 import React from 'react';
 import { FaBell, FaEllipsisV, FaSearch } from 'react-icons/fa';
 
-import { HeaderDiv, UserActions, ProfileImage } from './styles';
+import { HeaderDiv, UserActions, ProfileImage, Search } from './styles';
 
 const Header = () => (
     <HeaderDiv>
-        <div>
+        <Search>
             <label htmlFor="">
                 <FaSearch /> 
             </label>
             <input type="text" placeholder="Buscar" />
-        </div>
+        </Search>
         <UserActions>
             <button>
                 <FaBell />
