@@ -20,4 +20,5 @@ const EditPost = ({ post }) => {
 const mapStateToProps = (state) => ({
     post: state.currentPost,
 });
+
 export default connect(mapStateToProps, null)(EditPost);

@@ -5,7 +5,7 @@ import Post from '../../organisms/Post';
 import Settings from '../../organisms/Settings';
 
 import uploadImage from '../../../services/uploadImage';
-import savePost from '../../../services/savePost';
+import updatePost from '../../../services/updatePost';
 
 import { Container } from './styles'
 
@@ -38,7 +38,7 @@ const FormPost = ({
             description,
             keywords,
         });
-        savePost({
+        updatePost({
             title,
             cover,
             slug,
