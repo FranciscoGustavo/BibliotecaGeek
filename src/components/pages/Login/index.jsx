@@ -29,20 +29,16 @@ const Login = ({ history, login }) => {
             },
         })
         .then((res) => {
-            console.log({
+            const user = {
                 token: res.data.token,
                 cover: res.data.user.cover,
                 email: res.data.user.email,
                 firstName: res.data.user.firstName,
                 id: res.data.user.id,
-            });
-            login({
-                token: res.data.token,
-                cover: res.data.user.cover,
-                email: res.data.user.email,
-                firstName: res.data.user.firstName,
-                id: res.data.user.id,
-            });
+            };
+            console.log(user);
+            login(user);
+            localStorage.setItem('user', JSON.stringify(user));
             history.push('/');
         })
         .catch();
