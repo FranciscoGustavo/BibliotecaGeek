@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import FormPost from '../../templates/FormPost';
 
 const EditPost = ({ post }) => {
-    const { title, cover, slug, body, description, keywords } = post;
+    const { id, title, cover, slug, body, description, keywords } = post;
     return (
         <FormPost 
+            currentId={id}
             currentTitle={title}
             currentCover={cover}
             currentSlug={slug}

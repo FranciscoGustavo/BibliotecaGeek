@@ -6,12 +6,14 @@ import Settings from '../../organisms/Settings';
 
 import uploadImage from '../../../services/uploadImage';
 import updatePost from '../../../services/updatePost';
+import savePost from '../../../services/savePost';
 
 import { Container } from './styles'
 
 const converter = new showdown.Converter();
 
 const FormPost = ({ 
+    currentId,
     currentTitle, 
     currentCover,
     currentSlug,
@@ -30,15 +32,9 @@ const FormPost = ({
     const [keywords, setKeywords] = useState(currentKeywords);
 
     const handleSave = () => {
-        console.log({
-            title,
-            cover,
-            slug,
-            body,
-            description,
-            keywords,
-        });
-        updatePost({
+        let saveOrUpdatePost = updatePost;
+        if (!currentId) saveOrUpdatePost = savePost;
+        saveOrUpdatePost({
             title,
             cover,
             slug,

@@ -4,6 +4,7 @@ import FormPost from '../../templates/FormPost';
 
 const NewPost = () => (
     <FormPost 
+        currentId={null}
         currentTitle={''}
         currentCover={''}
         currentSlug={''}
