@@ -4,6 +4,9 @@ import showdown from 'showdown';
 import Post from '../../organisms/Post';
 import Settings from '../../organisms/Settings';
 
+import uploadImage from '../../../services/uploadImage';
+import savePost from '../../../services/savePost';
+
 import { Container } from './styles'
 
 const converter = new showdown.Converter();
@@ -35,15 +38,33 @@ const FormPost = ({
             description,
             keywords,
         });
+        savePost({
+            title,
+            cover,
+            slug,
+            body,
+            description,
+            keywords,
+        })
+        .then(console.log)
+        .catch(console.log);
         alert('Guardando');
     };
 
     const handleTitle = (event) => setTitle(event.target.value);
-    const handleCover = (event) => {};
     const handleSlug = (event) => setSlug(event.target.value);
     const hanldeBody = (event) => setBody(event.target.value);
     const handleDescription = (event) => setDescription(event.target.value);
     const handleKeywords = (event) => setKeywords(event.target.value);
+    
+    const handleCover = (event) => {
+        const file = event.target.files[0];
+        if (file.type === "image/jpeg") {
+            uploadImage('cover', file)
+            .then((url) => setCover(url))
+            .catch(console.log);
+        }
+    };
 
     const handleConvertHtml = () => {
         setBodyHtml(converter.makeHtml(body));

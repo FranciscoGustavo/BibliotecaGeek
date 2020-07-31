@@ -5,7 +5,6 @@ import { Div, Actions, InputForm } from './styles';
 const Settings = ({
     slug, description, keywords, handleSave, handleSlug, handleDescription, handleKeywords,
 }) => {
-    console.log({ slug, description, keywords, handleSave, handleSlug, handleDescription, handleKeywords });
     return (
         <Div>
             <Actions>
