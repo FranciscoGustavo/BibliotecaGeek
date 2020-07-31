@@ -4,14 +4,15 @@ export const Container = styled.div`
 display: flex;
 justify-content: space-between;
 width: 100%;
-height: 100%;
+min-height: 100%;
 `;
 
 export const Post = styled.div`
 width: 700px;
-overflow-y: auto;
+min-height: 100%;
 
 > div {
+    min-height: 100%;
     border-radius: 7px;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.16);
     overflow: hidden;
