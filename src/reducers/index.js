@@ -5,6 +5,11 @@ const reducer = (state, action) => {
                 ...state,
                 user: action.payload,
             }
+        case 'SAVE_POSTS':
+            return {
+                ...state,
+                posts: action.payload,
+            }
         default:
             return state;
     }

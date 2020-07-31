@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { FaEdit, FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 
 import TemplateTable from '../../templates/TemplateTable';
+import { savePosts } from '../../../actions';
 
-const Posts = ({ token }) => {
+const Posts = ({ token, save }) => {
     const [posts, setPosts] = useState(false);
     const [err, setError] = useState(false);
 
@@ -17,9 +18,12 @@ const Posts = ({ token }) => {
                 Authorization: `Bearer ${token}`,
             },
         })
-        .then((res) => setPosts(res.data.body.posts))
+        .then((res) => {
+            setPosts(res.data.body.posts)
+            save(res.data.body.posts);
+        })
         .catch((err) => setError(err));
-    }, [token]);
+    }, []);
 
     const columns = [
         { Header: 'Titulo', accessor: 'title' },
@@ -35,10 +39,10 @@ const Posts = ({ token }) => {
             accessor: 'slug',
             Cell: (cell) => (
                 <div>
-                    <Link to={cell.value}>
+                    <Link to={`/posts/edit/${cell.value}`}>
                         <FaEdit />
                     </Link>
-                    <Link to="/" >
+                    <Link to={cell.value}>
                         <FaTrash />
                     </Link>
                 </div>
@@ -63,4 +67,8 @@ const mapStateToProps = (state) => ({
     token: state.user.token,
 });
 
-export default connect(mapStateToProps, null)(Posts);
+const mapDispatchToProps = {
+    save: savePosts 
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);
