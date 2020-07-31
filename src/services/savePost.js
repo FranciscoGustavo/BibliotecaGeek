@@ -1,4 +1,7 @@
 import axios from 'axios';
+
+import config from '../config';
+
 const { token } = JSON.parse(localStorage.getItem('user'));
 
 const savePost = async ({
@@ -10,7 +13,7 @@ const savePost = async ({
     slug,
 }) => {
     try {
-        const res = await axios.post('http://localhost:5000/api/posts', {
+        const res = await axios.post(`${config.api}/posts`, {
                 title,
                 cover,
                 body,

@@ -1,4 +1,6 @@
 import axios from 'axios';
+
+import config from '../config';
 const { token } = JSON.parse(localStorage.getItem('user'));
 
 const updatePost = async ({
@@ -10,7 +12,7 @@ const updatePost = async ({
     slug,
 }) => {
     try {
-        const res = await axios.patch(`http://localhost:5000/api/posts/${slug}`, {
+        const res = await axios.patch(`${config}/posts/${slug}`, {
                 title,
                 cover,
                 body,
