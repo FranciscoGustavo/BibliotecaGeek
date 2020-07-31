@@ -11,7 +11,6 @@ const updatePost = async ({
     keywords,
     slug,
 }, currentSlug) => {
-    console.log(`${config.api}/posts/${currentSlug}`);
     try {
         const res = await axios.patch(`${config.api}/posts/${currentSlug}`, {
                 title,

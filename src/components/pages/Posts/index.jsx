@@ -6,6 +6,7 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 import TemplateTable from '../../templates/TemplateTable';
 import { savePosts, currentPost } from '../../../actions';
 import getPosts from '../../../services/getPosts';
+import deletePost from '../../../services/deletePost';
 
 const Posts = ({ token, save, history, current }) => {
     const [posts, setPosts] = useState(false);
@@ -28,6 +29,15 @@ const Posts = ({ token, save, history, current }) => {
         history.push(`/posts/edit/${slug}`);
     };
 
+    const handleDelete = (slug) => {
+        deletePost(slug, token)
+            .then((message) => {
+                console.log(message);
+                history.push('/posts');
+            })
+            .catch(console.log);
+    }
+
     const columns = [
         { Header: 'Titulo', accessor: 'title' },
         { Header: 'Me gusta', accessor: 'likes' },
@@ -45,9 +55,9 @@ const Posts = ({ token, save, history, current }) => {
                     <button onClick={() => handleClick(cell.value)}>
                         <FaEdit />
                     </button>
-                    <Link to={cell.value}>
+                    <button onClick={() => handleDelete(cell.value)}>
                         <FaTrash />
-                    </Link>
+                    </button>
                 </div>
             ),
         }
