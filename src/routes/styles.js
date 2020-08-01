@@ -30,6 +30,10 @@ img {
 button {
     cursor: pointer;
     background-color: transparent;
+    
+    :focus {
+        outline: none;
+    }
 }
 
 main {
